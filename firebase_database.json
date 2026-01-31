@@ -1,0 +1,26 @@
+{
+  "weather": {
+    "temperature": "32\u00b0C",
+    "wind": "6 km/h",
+    "condition": "Sunny",
+    "humidity": "55%"
+  },
+  "traffic": {
+    "level": "Medium",
+    "congestion": "45%",
+    "delay": "5 min",
+    "vehicles": "90,000"
+  },
+  "energy": {
+    "usage": "82 MW",
+    "renewable": "40%",
+    "efficiency": "High",
+    "peak": "Evening"
+  },
+  "streetLights": {
+    "total": 12500,
+    "active": 12000,
+    "faulty": 500,
+    "mode": "AUTO"
+  }
+}

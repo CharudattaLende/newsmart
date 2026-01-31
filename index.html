@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart City Dashboard</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>🏙 Smart City</h2>
+  <ul>
+    <li class="nav-item active" onclick="loadWeather()">🌦 Weather</li>
+    <li class="nav-item" onclick="loadEnvironment()">🌿 Environment</li>
+    <li class="nav-item" onclick="loadTraffic()">🚦 Traffic</li>
+    <li class="nav-item" onclick="loadEnergy()">⚡ Energy</li>
+    <li class="nav-item" onclick="loadStreetLights()">💡 Street Lights</li>
+    <li class="nav-item" onclick="loadAbout()">ℹ About City</li>
+  </ul>
+  <div class="sidebar-footer">Built for demo • Nagpur</div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <div class="topbar">
+    <div class="top-left">
+      <h1>Smart City Dashboard</h1>
+      <span class="status online">● ONLINE</span>
+      <span id="weatherBadge" class="weather-badge" aria-live="polite" style="display:none"></span>
+    </div>
+
+    <div class="top-controls">
+      <div class="control-row">
+        <label class="switch">
+          <input id="effectsToggle" type="checkbox" checked>
+          <span class="slider" title="Toggle map effects"></span>
+        </label>
+        <button id="simulateRainBtn" class="btn small">Simulate Rain</button>
+        <button id="testDbBtn" class="btn small neutral">Test DB</button>
+        <span id="dbStatus" class="db-status" aria-live="polite">DB: —</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card" id="card1"></div>
+    <div class="card" id="card2"></div>
+    <div class="card" id="card3"></div>
+    <div class="card" id="card4"></div>
+  </div>
+
+  <div class="map-container">
+    <div class="map-header">
+      <h2>📍 City Map View</h2>
+      <div class="map-legend">Hover markers for details • Effects: <span id="effectsStatus">On</span></div>
+    </div>
+    <div id="map"></div>
+  </div>
+
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- 🔥 FIREBASE SETUP (PUT YOUR CONFIG HERE) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyCvQK9JLg730UJwB6S_2sbyQeWXWu1A7FQ",
+  authDomain: "smart-city-dashboard-279fe.firebaseapp.com",
+  databaseURL: "https://smart-city-dashboard-279fe-default-rtdb.firebaseio.com",
+  projectId: "smart-city-dashboard-279fe",
+  storageBucket: "smart-city-dashboard-279fe.firebasestorage.app",
+  messagingSenderId: "771329900697",
+  appId: "1:771329900697:web:4e88b095c7e2a07211f808",
+  measurementId: "G-H6X6X8SK9H"
+};
+
+  // Make Firebase available to script.js
+  window.firebaseApp = initializeApp(firebaseConfig);
+  window.db = getDatabase(window.firebaseApp);
+</script>
+
+<!-- MAIN SCRIPT -->
+<script type="module" src="script.js"></script>
+</body>
+</html>
