@@ -1,8 +1,8 @@
 {
   "weather": {
-    "temperature": "32\u00b0C",
+    "temperature": "8\u00b0C",
     "wind": "6 km/h",
-    "condition": "Sunny",
+    "condition": "rainy",
     "humidity": "55%"
   },
   "traffic": {
